@@ -134,7 +134,7 @@ class SemsSensor(CoordinatorEntity, SensorEntity):
     @property
     def name(self) -> str:
         """Return the name of the sensor."""
-        return f"Wallbox {self.coordinator.data[self.sn]['model']}"
+        return f"EV Charger {self.coordinator.data[self.sn]['model']}"
 
     @property
     def unique_id(self) -> str:
@@ -332,7 +332,7 @@ class SemsStatisticsSensor(CoordinatorEntity, SensorEntity):
     @property
     def name(self) -> str:
         """Return the name of the sensor."""
-        return f"Wallbox Energy"
+        return f"EV Charger Energy"
 
     @property
     def unique_id(self) -> str:
