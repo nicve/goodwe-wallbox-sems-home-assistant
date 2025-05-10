@@ -65,7 +65,7 @@ async def async_setup_entry(hass, config_entry, async_add_entities):
             sn = inverter["sn"]
             nonlocal set_charge_power
             set_charge_power = inverter["set_charge_power"]
-            _LOGGER.debug("Found wallbox attribute %s %s set_charge_power", name, sn)
+            _LOGGER.debug("Found EV Charger attribute %s %s set_charge_power", name, sn)
             data[sn] = inverter
 
             # _LOGGER.debug("Resulting data: %s", data)
