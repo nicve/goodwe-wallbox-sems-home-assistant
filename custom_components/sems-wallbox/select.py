@@ -20,8 +20,8 @@ _LOGGER = logging.getLogger(__name__)
 
 _MODE_TO_OPTION: dict[int, str] = {
     0: "Fast",
-    1: "PV priority",
-    2: "PV & battery",
+    1: "Solar priority",
+    2: "Solar & battery",
 }
 
 _OPTION_TO_MODE: dict[str, int] = {
