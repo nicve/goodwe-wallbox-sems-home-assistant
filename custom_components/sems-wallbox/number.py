@@ -113,12 +113,12 @@ class SemsNumber(CoordinatorEntity, NumberEntity):
         self.api = api
         self.sn = sn
         self._attr_native_value = float(value) if value is not None else None
-        _LOGGER.debug(f"Creating SemsNumber for Wallbox {self.sn}")
+        _LOGGER.debug(f"Creating SemsNumber for EV Charger {self.sn}")
 
     @property
     def name(self) -> str:
         """Return the name of the switch."""
-        return f"Wallbox set charge power"
+        return f"EV Charger set charge power"
 
     @property
     def device_class(self):
@@ -134,11 +134,11 @@ class SemsNumber(CoordinatorEntity, NumberEntity):
 
     @property
     def native_min_value(self):
-        return 4.2
+        return 1.4
 
     @property
     def native_max_value(self):
-        return 11
+        return 7
 
     @property
     def unique_id(self) -> str:
@@ -173,7 +173,7 @@ class SemsNumber(CoordinatorEntity, NumberEntity):
         await self.coordinator.async_refresh()
         set_charge_power = self.coordinator.data[self.sn]["set_charge_power"]
         self._attr_native_value = float(set_charge_power)
-        _LOGGER.debug(f"Updating SemsNumber for Wallbox state to {set_charge_power}")
+        _LOGGER.debug(f"Updating SemsNumber for EV Charger state to {set_charge_power}")
         self.async_write_ha_state()
 
     async def async_set_native_value(self, value: float) -> None:
