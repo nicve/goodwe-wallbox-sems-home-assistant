@@ -83,7 +83,7 @@ class SemsApi:
         """Get the latest data from the SEMS API and updates the state."""
         try:
             # Get the status of our SEMS Power Station
-            _LOGGER.debug("SEMS - Making Wallbox Status API Call")
+            _LOGGER.debug("SEMS - Making EV Charger Status API Call")
             if maxTokenRetries <= 0:
                 _LOGGER.info(
                     "SEMS - Maximum token fetch tries reached, aborting for now"
@@ -117,7 +117,7 @@ class SemsApi:
             #     powerStationURL, headers=headers, data=data, timeout=_RequestTimeout
             # )
             _LOGGER.debug(
-                "Querying SEMS API (%s) for Wallbox Serial No: %s",
+                "Querying SEMS API (%s) for EV Charger Serial No: %s",
                 _WallboxURL,
                 powerStationId
             )
@@ -200,7 +200,7 @@ class SemsApi:
         """Schedule the downtime of the station"""
         try:
             # Get the status of our SEMS Power Station
-            _LOGGER.debug("SEMS - Making Wallbox SetChargeMode API Call")
+            _LOGGER.debug("SEMS - Making EV Charger SetChargeMode API Call")
             if maxTokenRetries <= 0:
                 _LOGGER.info(
                     "SEMS - Maximum token fetch tries reached, aborting for now"
