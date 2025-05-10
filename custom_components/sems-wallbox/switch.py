@@ -59,7 +59,7 @@ async def async_setup_entry(hass, config_entry, async_add_entities):
             sn = inverter["sn"]
             nonlocal current_state
             current_state = inverter["startStatus"]
-            _LOGGER.debug("Found wallbox attribute %s %s", name, sn)
+            _LOGGER.debug("Found EV Charger attribute %s %s", name, sn)
             data[sn] = inverter
 
             # _LOGGER.debug("Resulting data: %s", data)
@@ -107,7 +107,7 @@ class SemsSwitch(CoordinatorEntity, SwitchEntity):
         self.api = api
         self.sn = sn
         self._attr_is_on = current_is_on
-        _LOGGER.debug(f"Creating SemsSwitch for Wallbox {self.sn}")
+        _LOGGER.debug(f"Creating SemsSwitch for EV Charger {self.sn}")
 
     @property
     def name(self) -> str:
@@ -144,7 +144,7 @@ class SemsSwitch(CoordinatorEntity, SwitchEntity):
         return self.coordinator.data[self.sn]["startStatus"] == 0
 
     async def async_turn_off(self, **kwargs):
-        _LOGGER.debug(f"Wallbox {self.sn} set to Off")
+        _LOGGER.debug(f"EV Charger {self.sn} set to Off")
         await self.hass.async_add_executor_job(self.api.change_status, self.sn, 2)
         await self.coordinator.async_request_refresh()
         startStatus = self.coordinator.data[self.sn]["startStatus"]
@@ -153,7 +153,7 @@ class SemsSwitch(CoordinatorEntity, SwitchEntity):
         self.async_write_ha_state()
 
     async def async_turn_on(self, **kwargs):
-        _LOGGER.debug(f"Wallbox {self.sn} set to On")
+        _LOGGER.debug(f"EV Charger {self.sn} set to On")
         await self.hass.async_add_executor_job(self.api.change_status, self.sn, 1)
         await self.coordinator.async_request_refresh()
         startStatus = self.coordinator.data[self.sn]["startStatus"]
