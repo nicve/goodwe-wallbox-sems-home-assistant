@@ -11,7 +11,7 @@
         "step": {
             "user": {
                 "data": {
-                    "wallbox_serial_No": "Serial No of the wallbox",
+                    "wallbox_serial_No": "Serial No of the EV Charger",
                     "password": "Password",
                     "username": "Username",
                     "scan_interval": "Update Interval (seconds)"
@@ -19,5 +19,5 @@
             }
         }
     },
-    "title": "GoodWe SEMS API for Wallbox"
+    "title": "GoodWe SEMS API for EV Charger"
 }
