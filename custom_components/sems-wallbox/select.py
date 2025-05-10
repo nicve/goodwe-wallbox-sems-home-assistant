@@ -104,8 +104,7 @@ class InverterOperationModeEntity(SelectEntity):
         self.sn = sn
         self.entity_description = description
         self._attr_unique_id = f"{self.sn}-select-charge-mode"
-        # self._attr_options = supported_options
-        self._attr_options = [option for option in supported_options if option != "2"]
+        self._attr_options = supported_options
         self._attr_current_option = str(current_mode)
         self._inverter = inverter
         self._current_charge_power = current_charge_power
