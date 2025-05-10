@@ -179,5 +179,5 @@ class SemsSwitch(CoordinatorEntity, SwitchEntity):
         await self.coordinator.async_request_refresh()
         startStatus = self.coordinator.data[self.sn]["startStatus"]
         self._attr_is_on = startStatus == 0
-        _LOGGER.debug(f"Updating SemsSwitch for Wallbox state to {startStatus == 0}")
+        _LOGGER.debug(f"Updating SemsSwitch for EV Charger state to {startStatus == 0}")
         self.async_write_ha_state()
