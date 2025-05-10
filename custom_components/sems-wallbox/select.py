@@ -62,7 +62,8 @@ async def async_setup_entry(
             inverter["sn"],
             OPERATION_MODE,
             inverter,
-            [v for k, v in _MODE_TO_OPTION.items()],
+            #[v for k, v in _MODE_TO_OPTION.items()],
+            [v for k, v in _MODE_TO_OPTION.items() if v != "Solar & battery"],
             _MODE_TO_OPTION.get(active_mode),
             current_charge_power,
         )
