@@ -62,7 +62,7 @@ async def async_setup_entry(hass, config_entry, async_add_entities):
 
             name = inverter["name"]
             sn = inverter["sn"]
-            _LOGGER.debug("Found wallbox attribute %s %s", name, sn)
+            _LOGGER.debug("Found EV Charger attribute %s %s", name, sn)
             data[sn] = inverter
 
             # _LOGGER.debug("Resulting data: %s", data)
@@ -240,7 +240,7 @@ class SemsPowerSensor(CoordinatorEntity, SensorEntity):
     @property
     def name(self) -> str:
         """Return the name of the sensor."""
-        return "Wallbox power"
+        return "EV Charger power"
 
     @property
     def unique_id(self) -> str:
