@@ -114,7 +114,7 @@ class InverterOperationModeEntity(SelectEntity):
     @property
     def name(self) -> str:
         """Return the name of the sensor."""
-        return f"Wallbox {self._inverter['model']}"
+        return f"EV Charger {self._inverter['model']}"
 
     @property
     def device_info(self):
@@ -159,7 +159,7 @@ class InverterOperationModeEntity(SelectEntity):
 
             mode = inverter["chargeMode"]
             charge_power = inverter["max_charge_power"]
-            _LOGGER.debug("Got wallbox charge mode %s and power %s", mode, charge_power)
+            _LOGGER.debug("Got EV Charger charge mode %s and power %s", mode, charge_power)
 
         # except ApiError as err:
         except Exception as err:
