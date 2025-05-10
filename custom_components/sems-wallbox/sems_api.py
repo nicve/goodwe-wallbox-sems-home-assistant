@@ -9,11 +9,11 @@ from functools import wraps
 
 _LOGGER = logging.getLogger(__name__)
 
-_LoginURL = "https://eu.semsportal.com/api/v2/Common/CrossLogin"
+_LoginURL = "https://www.semsportal.com/api/v2/Common/CrossLogin"
 _PowerStationURLPart = "/v2/PowerStation/GetMonitorDetailByPowerstationId"
-_WallboxURL = "https://eu.semsportal.com/api/v3/EvCharger/GetCurrentChargeinfo"
-_SetChargeModeURL = "https://eu.semsportal.com/api/v3/EvCharger/SetChargeMode"
-_PowerControlURL = "https://eu.semsportal.com/api/v3/EvCharger/Charging"
+_WallboxURL = "https://www.semsportal.com/api/v3/EvCharger/GetCurrentChargeinfo"
+_SetChargeModeURL = "https://www.semsportal.com/api/v3/EvCharger/SetChargeMode"
+_PowerControlURL = "https://www.semsportal.com/api/v3/EvCharger/Charging"
 
 _RequestTimeout = 30  # seconds
 
